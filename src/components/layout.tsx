@@ -18,6 +18,7 @@ const Layout: React.FC<{ children: React.ReactNode, trans:any, set: boolean }> =
   const modalOn: modalGeneric = () => setVisibility(true);
   const chnageLanguage: langGeneric = (route) => setLanguage(route);
 
+  //scrollbar useffect
   React.useEffect(() => {
     const scrollbar = document.documentElement;
 
@@ -29,6 +30,11 @@ const Layout: React.FC<{ children: React.ReactNode, trans:any, set: boolean }> =
 
     return () => {};
   }, [visibility]);
+
+  React.useEffect(() => {
+    setLanguage(window.location.pathname[1] + window.location.pathname[2] || 'en')
+
+  },[language])
 
   return (
     <main>

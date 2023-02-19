@@ -6,6 +6,8 @@ import React from "react";
 // import 'src/i18n/'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import useLanguageSwitcher from "@/i18n/useLanguageSwitcher";
+import Link from "next/link";
 type HomeProps = { locale: string };
 
 export async function getStaticProps({ locale }: HomeProps) {
@@ -18,10 +20,10 @@ export async function getStaticProps({ locale }: HomeProps) {
 
 export default function Home() {
   const router = useRouter();
+  const { pathname, query, asPath, locale: activeLocale } = router;
   const { t } = useTranslation("common");
-  React.useEffect(() => {
-    console.log(router);
-  });
+
+  const switchh = useLanguageSwitcher;
 
   return (
     <>
@@ -32,24 +34,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        {t('links.ten')}
-        kdhjkhzkjdhjkzdjkhkz jhzdkjhjkzd kjhzdjk dzkjhkj 
-        fzdufjdzkl 
-        fkjzldkjfkdz 
-        \dzlkjfdjlkzd
-         flzhfnzlndz
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        {t("links.ten")}
+        kdhjkhzkjdhjkzdjkhkz jhzdkjhjkzd kjhzdjk dzkjhkj fzdufjdzkl fkjzldkjfkdz \dzlkjfdjlkzd flzhfnzlndz
+        <Link href={{ pathname, query }} as={asPath} locale={"fr"}>Switch</Link>
       </div>
     </>
   );

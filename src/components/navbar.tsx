@@ -11,6 +11,7 @@ type NavbarProps = modalProps & {
   lang: string;
   t: any;
   set: boolean;
+  
 };
 
 const Navbar: React.FC<NavbarProps> = ({ lang, openModal, t, set }) => {

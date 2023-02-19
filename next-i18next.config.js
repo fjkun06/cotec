@@ -13,7 +13,9 @@ module.exports = {
   defaultNS: "navbar",
   i18n: {
     locales: ["en", "fr", "de"],
-    defaultLocale: "en",
+      defaultLocale:isBrowser && (window.location.pathname[1] + window.location.pathname[2]) || 'en',
+    fallbackLng:isBrowser && (window.location.pathname[1] + window.location.pathname[2]) || 'en',
+
   },
   ns: ['navbar'],
 // defaultNS: 'translation',

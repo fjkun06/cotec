@@ -8,6 +8,7 @@ import { appWithTranslation } from 'next-i18next'
 //setting up language
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 type HomeProps = { locale: string };
 
 export async function getStaticProps({ locale }: HomeProps) {
@@ -20,6 +21,13 @@ export async function getStaticProps({ locale }: HomeProps) {
 
  function App({ Component, pageProps }: AppProps) {
   const { t, i18n,ready } = useTranslation(['common'])
+
+  const router = useRouter();
+const { locale } = router;
+
+React.useEffect(() => {
+    i18n.changeLanguage(locale);
+  }, [locale]);
   
   return (
     <Layout trans={t} set={ready}>
