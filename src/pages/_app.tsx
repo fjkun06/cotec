@@ -27,11 +27,12 @@ const { locale } = router;
 
 React.useEffect(() => {
     i18n.changeLanguage(locale);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
   
   return (
     <Layout trans={t} set={ready}>
-      <Component {...pageProps} />
+      <Component {...pageProps} key={router.asPath}/>
     </Layout>
   );
 }

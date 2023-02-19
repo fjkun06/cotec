@@ -23,7 +23,7 @@ const Internships = () => {
   const tester = () => {
     linkRef.current?.click();
     console.log(linkRef);
-    setTimeout(() => router.reload(), 500);
+    setTimeout(() => router.reload(), 100);
   };
 
   return (

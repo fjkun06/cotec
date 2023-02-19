@@ -1,3 +1,4 @@
+import Modal from "@/libs/Modal";
 import Head from "next/head";
 import React from "react";
 // import Navbar from "./navbar";
@@ -41,6 +42,7 @@ const Layout: React.FC<{ children: React.ReactNode, trans:any, set: boolean }> =
       <Head>
         <title>{"Hello"}</title>
       </Head>
+      <Modal visibility={visibility} closeModal={modalOff} setLang= {chnageLanguage} t={trans}/>
       <Navbar lang={language} openModal={modalOn} t={trans} set/>
 
       <nav>My heade bitch</nav>
