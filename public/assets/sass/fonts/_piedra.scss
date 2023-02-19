@@ -1,0 +1,13 @@
+@use "~@fontsource/piedra/scss/mixins" as Piedra;
+
+$weights: 400;
+
+@each $weight in $weights {
+  $name: "Piedrae #{$weight}";
+
+  @if $weight == 400 {
+    $name: "Piedra";
+  }
+
+  @include Piedra.fontFace($fontName: $name, $weight: $weight);
+}

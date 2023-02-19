@@ -1,0 +1,20 @@
+{
+  "links": {
+    "one": "Home",
+    "two": "Resources",
+    "three": "Annonces",
+    "four": "Internships +",
+    "five": "Polls",
+    "six": "Projects +",
+    "eight": "Sign In",
+    "nine": "Sign Up",
+    "ten": "Sign Out"
+  },
+  "modal": {
+    "themes": {
+      "light": "Light",
+      "system": "System",
+      "dark": "Dark"
+    }
+  }
+}

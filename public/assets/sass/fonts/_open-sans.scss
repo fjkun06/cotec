@@ -1,0 +1,14 @@
+@use "~@fontsource/open-sans/scss/mixins" as OpenSans;
+
+// $weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+$weights: 300, 400, 500, 600, 700, 800;
+
+@each $weight in $weights {
+  $name: "Open Sans #{$weight}";
+
+  @if $weight == 400 {
+    $name: "Open Sans";
+  }
+
+  @include OpenSans.fontFace($fontName: $name, $weight: $weight);
+}

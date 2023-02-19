@@ -1,0 +1,13 @@
+@use "~@fontsource/roboto/scss/mixins" as Roboto;
+
+$weights: 100, 300, 400, 500, 900, 700;
+
+@each $weight in $weights {
+  $name: "Roboto #{$weight}";
+
+  @if $weight == 400 {
+    $name: "Roboto";
+  }
+
+  @include Roboto.fontFace($fontName: $name, $weight: $weight);
+}

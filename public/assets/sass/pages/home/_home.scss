@@ -1,0 +1,11 @@
+@use './../.././utils/mixins';
+@use './../.././utils/variables';
+
+section[class="home"]{
+  margin-top: 10vh;
+
+// border: 1px solid #ccc;
+@include mixins.size(100%,100vh);
+// background-color: variables.$cot-blue;
+color: variables.$cot-blue;
+}

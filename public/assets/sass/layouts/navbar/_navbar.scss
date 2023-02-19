@@ -1,0 +1,191 @@
+@use "../../utils/mixins";
+@use "../../utils/variables";
+@use "./modal";
+
+nav {
+  background-color: lighten(variables.$cot-white, 0%);
+
+  color: variables.$cot-blue;
+  @include mixins.grid;
+  @include mixins.size(100%, 10vh);
+  padding: 0 6rem;
+  overflow: hidden;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: repeat(1, 1fr);
+  position: fixed;
+  top: 0;
+
+  //navbar underline
+  // &::after {
+  //   content: "";
+  //   display: block;
+  //   position: absolute;
+  //   // top: 100%;
+  //   bottom: 0;
+  //   @include mixins.size(100%, 6px);
+
+  //   background: linear-gradient(to right, variables.$cot-gold 0%, variables.$cot-white 55%, variables.$cot-blue 80%);
+  //   background: linear-gradient(to right, variables.$cot-gold 50%, variables.$cot-blue 60%);
+  //   // border: 1px solid red;
+  //   z-index: 2;
+  // }
+
+  & > * {
+    @include mixins.size(100%, 10vh);
+    @include mixins.flex;
+    font-family: "Open Sans 400", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    // border: 1px solid red;
+
+    &:nth-child(2) {
+      @include mixins.flex;
+      justify-content: space-evenly;
+    }
+    &:nth-child(3) {
+      // background-color: rgba(0, 0, 0, 0.16);
+      @include mixins.flex;
+      justify-content: flex-end;
+      & > * {
+        padding: 0 1rem;
+      }
+    }
+  }
+  // justify-content: space-between;
+
+  //navbar svg
+  .navbar--logo {
+    background-color: transparent;
+    @include mixins.size(130px);
+    -webkit-user-select: none;
+    user-select: none;
+    rect {
+      fill: lighten(variables.$cot-white, 0%);
+    }
+
+    text,
+    tspan {
+      font-family: "Open Sans 800", sans-serif;
+    }
+  }
+
+  .navbar--gear {
+    margin-right: 1rem;
+    margin-top: 5px;
+
+    svg {
+      cursor: pointer;
+      transition: transform 0.25s linear;
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  // /controlling highlighter
+  & > * a::selection,
+  *::selection {
+    background-color: variables.$cot-blue;
+    color: rgb(255, 255, 255);
+  }
+
+  & > * a {
+    text-decoration: none;
+    color: variables.$cot-blue;
+  }
+  .navbar__link,
+  .navbar__link--active {
+    font-weight: 600;
+    position: relative;
+
+    &:hover {
+      &::after {
+        width: 100%;
+        @include mixins.size(100%, 4px);
+      }
+    }
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      transition: width 0.25s ease-in-out;
+
+      top: 120%;
+      left: 0;
+      @include mixins.size(0%, 4px);
+      border-radius: 10px;
+      background-color: variables.$cot-gold;
+    }
+  }
+
+  .navbar__link--active {
+    &::after {
+      @include mixins.size(100%, 4px);
+    }
+  }
+
+  //navbar icon and text
+  .navbar__icon {
+    justify-content: flex-start;
+    span {
+      padding: 2rem;
+      margin-left: -4rem;
+
+      &:nth-child(2) {
+        margin-left: -7.5rem;
+        margin-top: 5px;
+        font-weight: 700;
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  //styling navbar buttons
+  .navbar__button {
+    border: none;
+    background-color: transparent;
+    font-family: "Open Sans 500", sans-serif;
+    font-size: 1.6rem;
+    color: variables.$cot-blue;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+
+    &:nth-of-type(1) {
+      font-weight: 600;
+      position: relative;
+      // border: 1px solid red;
+      padding: 0px;
+      margin-right: 10px;
+
+      &:hover {
+        &::after {
+          width: 100%;
+          @include mixins.size(100%, 4px);
+          border-radius: 10px;
+        }
+      }
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        transition: width 0.25s ease-in-out;
+
+        top: 120%;
+        left: 0;
+        @include mixins.size(0%, 4px);
+        background-color: variables.$cot-blue;
+      }
+    }
+    &:nth-of-type(2) {
+      &:hover {
+        background-color: lighten(variables.$cot-button-normal-light, 10%);
+        // background-color: complement(variables.$cot-button-normal-light);
+      }
+      color: variables.$cot-button-filled-light;
+      background-color: variables.$cot-button-normal-light;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+  }
+}

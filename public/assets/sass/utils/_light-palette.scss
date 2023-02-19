@@ -1,0 +1,14 @@
+:root.light,
+:root.manualLight {
+  & > * a::selection,
+  *::selection {
+    background-color: rebeccapurple;
+    color: white;
+  }
+
+  --aside-bg: rgb(255, 255, 255);
+
+  //footer section
+  //  --footer-bg: #{$footer-bg-light};
+  //  --footer-text: #{$footer-text-light};
+}

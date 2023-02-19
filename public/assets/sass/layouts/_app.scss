@@ -1,0 +1,12 @@
+@use "../utils/mixins";
+main {
+  // @include mixins.flex(column);
+  ::-webkit-scrollbar {
+    width: 21.3rem;
+  }
+  
+  overflow: hidden;
+  & > * {
+    @include mixins.size(100vw, auto);
+  }
+}

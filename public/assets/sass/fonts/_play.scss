@@ -1,0 +1,13 @@
+@use "~@fontsource/play/scss/mixins" as Play;
+
+$weights: 400,700;
+
+@each $weight in $weights {
+  $name: "Play #{$weight}";
+
+  @if $weight == 400 {
+    $name: "Play";
+  }
+
+  @include Play.fontFace($fontName: $name, $weight: $weight);
+}

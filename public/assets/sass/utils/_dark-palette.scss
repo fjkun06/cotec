@@ -1,0 +1,17 @@
+:root.dark,
+:root.manualDark {
+  //   &>* a::selection,   *::selection{
+  //     background-color: rebeccapurple;
+  //     color: white;
+  //  }
+
+  --aside-bg: #00308f;
+  --aside-bg: rgb(255, 255, 255);
+
+  --footer-bg: red;
+  --footer-text: green;
+
+  //arrow
+  // --arrow-start: #{$arrow-start-light};
+  // --arrow-end: #{$arrow-end-light};
+}

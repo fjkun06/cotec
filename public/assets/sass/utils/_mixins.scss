@@ -1,0 +1,36 @@
+// @use "./variables";
+
+//sets display to grid
+@mixin grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+
+//sets width and height
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin customgrid($r, $c, $rowsize, $columnsize: $rowsize) {
+  @include grid;
+  grid-template-rows: repeat($r, $rowsize);
+  grid-template-columns: repeat($c, $columnsize);
+ 
+}
+
+
+@mixin position($row, $column:$row) {
+  grid-row: #{$row};
+  grid-column: #{$column};
+}

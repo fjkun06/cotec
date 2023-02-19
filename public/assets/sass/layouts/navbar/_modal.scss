@@ -1,0 +1,189 @@
+@use "../../utils/variables";
+@use "../../utils/mixins";
+
+.contact__modal {
+  background-color: rgba($color: variables.$cot-blue, $alpha: 0.5);
+  background-color: rgba($color: variables.$cot-black, $alpha: 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  height: 100vh;
+  transition: all 0.5s ease-in-out;
+
+  opacity: 0;
+  z-index: 1;
+  animation: fadeinModal 0.25s ease-in 0s 1 forwards;
+  justify-content: flex-end;
+  &:hover {
+    cursor: pointer;
+  }
+
+  .modal__toggler {
+    @include mixins.size(80%, 100%);
+    background-color: transparent;
+  }
+  &-aside {
+    @include mixins.size(20%, 100%);
+    background-color: darken(variables.$cot-blue, 10%);
+    background-color: darken(variables.$cot-white, 10%);
+    background: var(--aside-bg);
+    min-width: 330px;
+    max-width: 500px;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    & > * {
+      width: 100%;
+      color: variables.$cot-white;
+      color: variables.$cot-black;
+      font-family: "Roboto", "Helvetica", sans-serif;
+      @include mixins.flex;
+    
+    }
+
+    header {
+      border-bottom: 0.5px solid variables.$cot-gold;
+      border-bottom: 6px solid variables.$cot-blue;
+      justify-content: space-between;
+      padding: 2rem 1.5rem;
+
+      span.closer {
+        font-family: "Piedra", "Helvetica", sans-serif;
+        font-size: 25px;
+        border: 1px solid transparent;
+        border-radius: 100%;
+        @include mixins.flex;
+        text-align: center;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        padding: 1.5rem;
+        transition: all 0.25s ease-in-out;
+        color: variables.$cot-gold;
+        color: variables.$cot-blue;
+
+        &:hover {
+          background-color: lighten(variables.$cot-blue, 60%);
+        }
+      }
+    }
+
+    .section__theme {
+      @include mixins.flex(column);
+      @include mixins.size(100%, 15%);
+      // background: #000;
+      padding: 0rem 1.5rem;
+
+      &-options,
+      &-title {
+        @include mixins.flex;
+      }
+
+      &-options {
+        // background-color: #fff;
+        @include mixins.size(100%, 50%);
+        justify-content: space-evenly;
+        &::after{
+          content: "";
+          display: block;
+          position: absolute;
+          // top: 100%;
+          top: 0;
+          background-color: #000;
+        }
+
+        div {
+          border: 1px solid darken(variables.$cot-blue, 0%);
+          border: 1px solid darken(DODGERBLUE, 20%);
+          @include mixins.size(100%, 75%);
+          border-radius: 5px;
+          @include mixins.flex;
+          font-size: 1.2rem;
+          transition: all 0.25s ease-in-out;
+
+     
+          &:hover {
+            background: lighten(variables.$cot-blue, 50%);
+          }
+
+          
+
+          span {
+            &:nth-of-type(1) {
+              margin-top: 0.5rem;
+              z-index: 2;
+              *>svg,span{
+                z-index: -1;
+                position: relative;
+              }
+            }
+            &:nth-of-type(2) {
+              padding-left: 0.75rem;
+              font-size: 1.2rem;
+            }
+          }
+
+          &:nth-of-type(1) {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            // background: lighten(variables.$cot-blue, 50%);
+            // color: lighten(variables.$cot-blue, 0%);
+          }
+          &:nth-of-type(2) {
+            border-radius: 0px;
+          }
+          &:nth-of-type(3) {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+          }
+        }
+      }
+      &-title {
+        @include mixins.size(100%, 35%);
+        justify-content: flex-start;
+        font-size: 1.2rem;
+        color: #999;
+        font-family: "Play 700", sans-serif;
+
+        // background-color: rgb(51, 222, 136);
+      }
+    }
+  }
+
+  //active class
+  &--out {
+
+    animation: slideoutModal 0.0025s ease-in 0s 1 forwards,slideinModal 0.15s ease-in 0.15s 1 forwards,slideoutModal 0.15s ease-in 0s 1 forwards;
+  }
+  &--in {
+    animation: slideoutModal 0.0025s ease-in 0s 1 forwards,slideinModal 0.15s ease-in 0.15s 1 forwards;
+  
+  }
+  &--start {
+    transition: transform 0.0025s ease-in;
+    transform: translateX(300px);
+  }
+}
+
+@keyframes fadeinModal {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideinModal {
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideoutModal {
+  100% {
+    transform: translateX(300px);
+  }
+}
+
+.current-option{
+  background: lighten(variables.$cot-blue, 50%);
+
+}
