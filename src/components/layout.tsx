@@ -11,7 +11,7 @@ const Footer = React.lazy((() => import('./footer')))
 type modalGeneric = () => void;
 type langGeneric = (route: string) => void;
 
-const Layout: React.FC<{ children: React.ReactNode, trans:any }> = ({ children, trans }) => {
+const Layout: React.FC<{ children: React.ReactNode, trans:any, set: boolean }> = ({ children, trans, set }) => {
   const [language, setLanguage] = React.useState<string>("/en");
   const [visibility, setVisibility] = React.useState(false);
   const modalOff: modalGeneric = () => setVisibility(false);
@@ -35,7 +35,7 @@ const Layout: React.FC<{ children: React.ReactNode, trans:any }> = ({ children, 
       <Head>
         <title>{"Hello"}</title>
       </Head>
-      <Navbar lang={language} openModal={modalOn} t={trans} />
+      <Navbar lang={language} openModal={modalOn} t={trans} set/>
 
       <nav>My heade bitch</nav>
       <section>{children}</section>

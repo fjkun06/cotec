@@ -14,7 +14,7 @@ React.useState(() => {
 text && setText(text);
 })
   const exactPath = router.asPath.slice(1 - router.asPath.length)
-  console.log("exact: ",exactPath)
+  // console.log("exact: ",exactPath)
   // const exactPath = router.asPath.slice(router.asPath.length - 3)
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

@@ -1,14 +1,20 @@
-
-  {
-    "links": {
-      "one": "One",
-      "two": "Two",
-      "three": "Angeboten",
-      "four": "Internships +",
-      "five": "Polls",
-      "six": "Projects +",
-      "eight": "Sign In",
-      "nine": "Sign Up",
-      "ten": "Sign Out"
+{
+  "links": {
+    "one": "Home",
+    "two": "Two",
+    "three": "Three",
+    "four": "Internships +",
+    "five": "Polls",
+    "six": "Projects +",
+    "eight": "Sign In",
+    "nine": "Sign Up",
+    "ten": "Sign Out"
+  },
+  "modal": {
+    "themes": {
+      "light": "Light",
+      "system": "System",
+      "dark": "Dark"
     }
+  }
 }

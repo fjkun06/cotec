@@ -2,11 +2,23 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React from "react";
 // import 'src/i18n/'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+type HomeProps = { locale: string };
+
+export async function getStaticProps({ locale }: HomeProps) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+}
 
 export default function Home() {
   const router = useRouter();
+  const { t } = useTranslation("common");
   React.useEffect(() => {
     console.log(router);
   });
@@ -20,7 +32,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        Hello
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        {t('links.ten')}
+        kdhjkhzkjdhjkzdjkhkz jhzdkjhjkzd kjhzdjk dzkjhkj 
+        fzdufjdzkl 
+        fkjzldkjfkdz 
+        \dzlkjfdjlkzd
+         flzhfnzlndz
       </div>
     </>
   );
